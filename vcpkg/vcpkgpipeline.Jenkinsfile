@@ -21,14 +21,14 @@ pipeline {
 
                 // integrate install はPowerShellで実行する必要がある
                 // bat "vcpkg.exe integrate install"
-                bat "powershell start-process  \"${SCRIPTPATH}\\InstallVcpkg.bat\" -verb runas"
+                bat "powershell start-process  \"${SCRIPTPATH}\\Vcpkg\\InstallVcpkg.bat\" -verb runas"
                 //${JENKINS_HOME}\workspace\InfoTracePlusJenkinsScript
             }
         }
         stage ('installx86') {
             steps {
                 // bat "vcpkg.exe install boost:x86-windows"
-                //bat "vcpkg.exe install boost:x86-windows-static"
+                bat "vcpkg.exe install boost:x86-windows-static"
                 // bat "vcpkg.exe install libarchive:x86-windows"
                 bat "vcpkg.exe install libarchive:x86-windows-static"
                 // bat "vcpkg.exe install wtl:x86-windows"
